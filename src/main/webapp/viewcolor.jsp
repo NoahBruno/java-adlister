@@ -9,10 +9,15 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        html{
+            background-color: ${color};
+        }
+    </style>
 </head>
-<body>
-<form action="/PickColor" method="get">
+<body >
+
 <h1>Here's your color: ${color}</h1>
-</form>
+
 </body>
 </html>
