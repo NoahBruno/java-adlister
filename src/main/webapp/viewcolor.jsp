@@ -9,13 +9,9 @@
 <html>
 <head>
     <title>Title</title>
-    <style>
-        html{
-            background-color: ${color};
-        }
-    </style>
+
 </head>
-<body >
+<body style="background-color: ${color}">
 
 <h1>Here's your color: ${color}</h1>
 

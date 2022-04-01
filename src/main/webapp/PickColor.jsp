@@ -14,7 +14,7 @@
 
 <h1>Welcome to PickColor!</h1>
 
-<form action="/PickColor" method="post">
+<form method="post">
     <label for="color">Choose a color: </label>
     <input id="color" name="color">
     <button type="submit">This Color!</button>

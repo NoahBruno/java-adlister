@@ -9,13 +9,16 @@ import java.io.IOException;
 
 @WebServlet(name="PickColor", urlPatterns = "/PickColor")
 public class PickColor extends HttpServlet {
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        request.getRequestDispatcher("PickColor.jsp").forward(request, response);
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String color = request.getParameter("color");
 
-//        response.sendRedirect("http://localhost:8080/viewcolor.jsp");
-        request.setAttribute("color", color);
-        request.getRequestDispatcher("/viewcolor.jsp").forward(request, response);
-        response.getWriter().println("oisfnee");
+        request.setAttribute(color, color);
+        response.sendRedirect("/ViewColor?color=" + color);
+
+
 
     }
 }

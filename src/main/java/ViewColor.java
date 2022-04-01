@@ -1,3 +1,4 @@
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -6,8 +7,12 @@ import java.io.IOException;
 
 @WebServlet(name="ViewColor", urlPatterns = "/ViewColor")
 public class ViewColor extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        response.getWriter().println("hi");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String color = request.getParameter("color");
+        request.setAttribute("color", color);
+        request.getRequestDispatcher("viewcolor.jsp").forward(request,response);
+
 
     }
 }
