@@ -1,3 +1,7 @@
+package dao;
+
+import dao.Ads;
+
 import java.sql.SQLException;
 
 public class DaoFactory {
@@ -7,6 +11,7 @@ public class DaoFactory {
     public static Ads getAdsDao() throws SQLException {
         if (adsDao == null) {
             adsDao = new MySQLAdsDao(config);
+//            adsDao = new ListAdsDao();
         }
         return adsDao;
     }

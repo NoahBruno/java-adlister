@@ -1,6 +1,9 @@
+package dao;
 
 import java.sql.DriverManager;
 import com.mysql.cj.jdbc.Driver;
+import dao.Ads;
+import models.Ad;
 
 import java.sql.*;
 import java.util.*;
