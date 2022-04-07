@@ -1,12 +1,16 @@
+
+import java.sql.DriverManager;
+import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class MySQLAdsDao implements Ads{
-    private Connection connection;
+public class MySQLAdsDao implements Ads {
 
-    public MySQLAdsDao (Config config) throws SQLException {
-        try{
+    private Connection connection = null;
+
+    public MySQLAdsDao(Config config) {
+        try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getURL(),
@@ -14,11 +18,9 @@ public class MySQLAdsDao implements Ads{
                     config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error");
+            throw new RuntimeException("Error", e);
         }
-
     }
-
 
     @Override
     public List<Ad> all() {
